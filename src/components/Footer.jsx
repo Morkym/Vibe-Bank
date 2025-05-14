@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../style'; // Ensure this path is correct and the styles object contains flexCenter and paddingY
-import { footerLinks } from '../constants'
+import { footerLinks, socialMedia } from '../constants'
 import { logo } from '../assets'
 
 const Footer = () => (
@@ -37,13 +37,26 @@ const Footer = () => (
           ))}
 
         </div>
-        <div>
-          <p className='font-poppins font-normal text-[18px] leading-[27px] text-lime-50
-                     hover:text-sky-200 '> 
-            &copy; {new Date().getFullYear()} Morris Macharia. All rights reserved.</p>
-        </div>
+        
       </div>
-
+      < div className='w-full flex justify-between items-center
+      md:flex-row flex-col pt-6 border-t-[1px] border-t-[#3f3r45]'>
+          <p className='font-poppins font-normal text-[18px] leading-[27px] text-lime-50
+                     hover:text-sky-200 italic '> 
+            &copy; {new Date().getFullYear()} Morris Macharia. All rights reserved.
+            </p>
+          <div className='flex flex-row md:mt-0 mt-6'>
+            {socialMedia.map((social,index)=>(
+              <img key={social.id}
+              src={social.icon} 
+              alt={social.id} 
+              className={`w-[21px] h-[21px] object-contain cursor-pointer
+                ${index !== socialMedia.length-1 ? 'mr-6': 'mr-0'}`}/>
+            ))}
+          
+          </div>
+        </div>
+       
     </section>
   )
 
