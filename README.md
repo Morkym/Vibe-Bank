@@ -26,7 +26,7 @@ A sleek, responsive, and modern bank website built with **React**, **Vite**, and
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Heroicons](https://heroicons.com/) *(optional)*
+- gsap
 
 ---
 

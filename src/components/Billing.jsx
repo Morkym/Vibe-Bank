@@ -1,10 +1,39 @@
 import React from 'react'
-import { apple,bill,google } from '../assets'
+import { apple,bill,google, star } from '../assets'
 import styles,{layout} from '../style'
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from 'react';
+import { useGSAP } from "@gsap/react";
 
-const Billing = () =>  (
+
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
+
+const Billing = () =>  {
+  const  imgRef = useRef(null)
+  
+   useGSAP(() => {
+    gsap.fromTo(
+      imgRef.current, 
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        ease: "power3.out",
+        duration: 2,
+        scrollTrigger: {
+          trigger: imgRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        }
+      }
+    );
+  });
+  return(
     <section id='product' className={layout.sectionReverse}>
-      <div className={layout.sectionImgReverse}>
+      <div className={layout.sectionImgReverse} ref={imgRef}>
         <img src={bill} alt="billing" className='w-[100%] h-[100%] relative z-[5]' />
         {/*add the gradient on the ledt side of the  bill img */}
 
@@ -31,6 +60,6 @@ const Billing = () =>  (
 
     </section>
 )
-
+}
 
 export default Billing

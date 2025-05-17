@@ -2,8 +2,37 @@ import React from 'react'
 import { card } from '../assets'
 import styles,{layout} from '../style'
 import Button from './Button'
+import { useRef } from 'react';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const CardDeal = () => (
+gsap.registerPlugin(ScrollTrigger);
+
+const CardDeal = () => {
+  
+  const imgRef = useRef(null)
+
+  useGSAP(() => {
+    gsap.fromTo(
+      imgRef.current,
+      { opacity: 0, y: -50 },
+      {
+        opacity: 1,
+        y: 0,
+        ease: "power3.out",
+        duration: 3,
+        scrollTrigger: {
+          trigger: imgRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        }
+      }
+    );
+  }
+  , []);
+
+  return(
     <section className={layout.section}>
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
@@ -18,7 +47,7 @@ const CardDeal = () => (
         </p>
         <Button styles='mt-10'/>
       </div>
-      <div className={layout.sectionImg}>
+      <div className={layout.sectionImg} ref={imgRef}>
         <img src={card} alt="card" className='w-[100%] h-[100%]' />
 
       </div>
@@ -26,5 +55,5 @@ const CardDeal = () => (
     </section>
   )
 
-
+}
 export default CardDeal
