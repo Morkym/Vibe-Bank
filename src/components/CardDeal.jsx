@@ -16,10 +16,10 @@ const CardDeal = () => {
   useGSAP(() => {
     gsap.fromTo(
       imgRef.current,
-      { opacity: 0, y: -50 },
+      { opacity: 0, x: 50 },
       {
         opacity: 1,
-        y: 0,
+        x: 0,
         ease: "power3.out",
         duration: 3,
         scrollTrigger: {

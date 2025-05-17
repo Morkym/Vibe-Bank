@@ -20,7 +20,7 @@ const Hero = () =>  {
         x: 0,
         ease: "power3.out",
         duration: 2,
-        
+        toggleActions: "play none none reverse",
       }
     );
     const split = new SplitType(textRef.current, { types: 'words' });
@@ -46,7 +46,7 @@ const Hero = () =>  {
             </span>
           
           < span className='text-white'>1 month</span>
-          Account
+         <span className='text-teal-100 ml-2'>Account</span> 
           </p>
          
         </div>
