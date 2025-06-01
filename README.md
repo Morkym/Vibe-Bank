@@ -16,7 +16,7 @@ A sleek, responsive, and modern bank website built with **React**, **Vite**, and
 
 ## 📸 Demo
 
-> [Live Demo](https://your-live-site-link.com) *(Coming soon)*  
+> [Live Demo](https://vibe-bank.netlify.app/)   
 > 
 
 ---
